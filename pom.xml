@@ -11,11 +11,11 @@
 
   <name>OME JAI</name>
   <description>Fork of Java Advanced Imaging ImageIO (deprecated).</description>
-  <url>http://www.openmicroscopy.org/site/products/bio-formats</url>
+  <url>https://www.openmicroscopy.org/bio-formats/</url>
   <inceptionYear>2005</inceptionYear>
   <organization>
     <name>Open Microscopy Environment</name>
-    <url>http://www.openmicroscopy.org/</url>
+    <url>https://www.openmicroscopy.org/</url>
   </organization>
   <licenses>
     <license>
@@ -62,15 +62,15 @@
     <connection>scm:git:https://github.com/ome/ome-jai</connection>
     <developerConnection>scm:git:git@github.com:ome/ome-jai</developerConnection>
     <tag>HEAD</tag>
-    <url>http://github.com/ome/ome-jai</url>
+    <url>https://github.com/ome/ome-jai</url>
   </scm>
   <issueManagement>
-    <system>Trac</system>
-    <url>https://trac.openmicroscopy.org/ome</url>
+    <system>GitHub</system>
+    <url>https://github.com/ome/ome-jai/issues</url>
   </issueManagement>
   <ciManagement>
-    <system>Jenkins</system>
-    <url>https://ci.openmicroscopy.org/</url>
+    <system>GitHub</system>
+    <url>https://github.com/ome/ome-jai/actions</url>
   </ciManagement>
 
   <properties>
