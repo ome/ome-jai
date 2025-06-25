@@ -94,6 +94,9 @@ import java.io.IOException;
 
 import java.util.Iterator;
 
+import java.security.AccessController;
+import java.security.PrivilegedAction;
+
 import javax.imageio.IIOImage;
 import javax.imageio.IIOException;
 import javax.imageio.ImageTypeSpecifier;
@@ -140,8 +143,13 @@ public class PNMImageWriter extends ImageWriter {
 
     static {
         if (lineSeparator == null) {
-            String ls = (String)java.security.AccessController.doPrivileged(
-               new sun.security.action.GetPropertyAction("line.separator"));
+            String ls = AccessController.doPrivileged(
+                new PrivilegedAction<String>() {
+                    public String run() {
+                        return System.getProperty("line.separator");
+                    }
+                }
+            );
             lineSeparator = ls.getBytes();
         }
     }
