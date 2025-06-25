@@ -108,6 +108,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 
+import java.security.AccessController;
+import java.security.PrivilegedAction;
+
 import com.sun.media.imageioimpl.common.ImageUtil;
 
 /** This class is the Java Image IO plugin reader for PNM images.
@@ -128,8 +131,13 @@ public class PNMImageReader extends ImageReader {
 
     static {
         if (lineSeparator == null) {
-            String ls = (String)java.security.AccessController.doPrivileged(
-               new sun.security.action.GetPropertyAction("line.separator"));
+            String ls = AccessController.doPrivileged(
+                new PrivilegedAction<String>() {
+                    public String run() {
+                        return System.getProperty("line.separator");
+                    }
+                }
+            );
             lineSeparator = ls.getBytes();
         }
     }
